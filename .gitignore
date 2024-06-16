@@ -30,4 +30,4 @@ db-old.json
 *-old.ts
 *-old.tsx
 .babelrcold
-.husky
+

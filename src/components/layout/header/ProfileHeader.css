@@ -1,0 +1,16 @@
+.profile-header {
+	display: flex;
+	justify-content: space-between;
+	/* flex: 1; */
+	/* align-items: flex-start; */
+	align-items: center;
+	margin: 30px;
+	/* grid-area: header; */
+}
+/* .profile-header {
+	display: flex;
+	justify-content: space-between;
+	flex: 1;
+	align-items: flex-start;
+	margin: 30px;
+} */

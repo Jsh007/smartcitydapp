@@ -1,0 +1,50 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["xo", "plugin:react/recommended", "prettier"],
+  "overrides": [
+    {
+      "extends": ["xo-typescript"],
+      "files": ["*.ts", "*.tsx"]
+    }
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "prettier"],
+  "rules": {
+    // "react/jsx-uses-react": "error",
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-uses-vars": "error",
+    // "react-in-jsx-scope": 0,
+    "comma-dangle": "off",
+    // "@typescript-eslint/comma-dangle": "off",
+    // "comma-dangle": ["error", "never"],
+    "@typescript-eslint/comma-dangle": [
+      "error",
+      {
+        "arrays": "never",
+        "objects": "never",
+        "imports": "never",
+        "exports": "never",
+        "functions": "never"
+      }
+    ],
+    "@typescript-eslint/indent": "off",
+    "@typescript-eslint/ban-types": "warn"
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  },
+  "ignorePatterns": ["node_modules/*"]
+}

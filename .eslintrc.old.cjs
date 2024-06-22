@@ -21,18 +21,22 @@ module.exports = {
     project: ['./tsconfig.json', './tsconfig.node.json'],
     tsconfigRootDir: __dirname,
   },
-  plugins: ['react-refresh', 'react-hooks'],
+  // plugins: ['react-refresh', 'react-hooks'],
+  plugins: ['react', 'prettier', 'react-refresh', 'react-hooks'],
   settings: {
     react: {
       version: 'detect',
     },
-  },
-  'import/resolver': {
-    node: {
-      paths: ['src'],
-      extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    'import/resolver': {
+      typescript: {},
     },
   },
+  // 'import/resolver': {
+  //   node: {
+  //     paths: ['src'],
+  //     extensions: ['.js', '.jsx', '.ts', '.tsx'],
+  //   },
+  // },
   rules: {
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     'no-unused-vars': [
@@ -45,4 +49,5 @@ module.exports = {
       },
     ],
   },
+  // "ignorePatterns": ["node_modules/*"]
 };

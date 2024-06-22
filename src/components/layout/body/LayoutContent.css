@@ -1,0 +1,10 @@
+.content-container {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.outlet-wrapper {
+	display: flex;
+	flex-direction: column;
+}

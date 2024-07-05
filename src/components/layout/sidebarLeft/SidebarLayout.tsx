@@ -19,9 +19,9 @@ function SidebarLayout() {
   };
 
   const currentPath = useLocation();
-
+  // removed classes sidebar
   return (
-    <div className="sidebar">
+    <div className="">
       <h2>Left Sidebar</h2>
       {/* <Sidebar>
         <SidebarLink icon={<Home />} label="Dashboard" active={currentPath.pathname === '/dash'} link="/dash" />

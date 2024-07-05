@@ -4,15 +4,18 @@ import { Route, createBrowserRouter, createRoutesFromElements } from 'react-rout
 
 import AffilateProfilePage from '@features/user/pages/AffilateProfilePage';
 import AffiliateApplyPage from '@features/user/pages/AffiliateApplyPage';
+import AffiliateDashFlow from '@components/navigation/affiliate/DashFlow';
 import AlertListAffiliatePage from '@features/alert/pages/AlertListAffiliatePage';
 import AlertListPage from '@features/alert/pages/AlertListPage';
 // import AffiliatesListPage from '@/features/affiliates/pages/AffiliatesListPage';
 // import AppFlow from './src/components/admin/navigation/AppFlow';
 import AppFlow from '@components/navigation/AppFlow';
+import BonusListAffiliatePage from '@features/bonus/pages/BonusListAffiliatePage';
+import BonusListPage from '@features/bonus/pages/BonusListPage';
 import ClaimListAffiliatePage from '@features/claim/pages/ClaimListAffiliatePage';
 import ClaimListPage from '@features/claim/pages/ClaimListPage';
 // NEW
-import DashFlow from '@components/navigation/DashFlow';
+import DashFlow from '@components/navigation/user/DashFlow';
 import DashboardAffilatePage from '@features/dashboard/pages/DashboardAffilatePage';
 import DashboardPage from '@features/dashboard/pages/DashboardPage';
 import EarningListAffiliatePage from '@features/earning/pages/EarningListAffiliatePage';
@@ -52,7 +55,7 @@ export const Router = createBrowserRouter(
 
       {/* <Route element={<PersistentLogin />}> */}
       {/* <Route element={<RequireAuth permitedRoles={[roles.affiliate]} />}> */}
-      <Route path="affiliatedash" element={<DashFlow />}>
+      <Route path="affiliatedash" element={<AffiliateDashFlow />}>
         <Route index element={<DashboardAffilatePage />} />
         {/* Features Routes */}
         <Route path="profiles">
@@ -66,6 +69,9 @@ export const Router = createBrowserRouter(
         <Route path="tokens">
           <Route index element={<UserTokenAffiliatePage />} />
         </Route>
+        <Route path="bonuses">
+          <Route index element={<BonusListAffiliatePage />} />
+        </Route>
         <Route path="referrals">
           <Route index element={<ReferralListAffiliatePage />} />
         </Route>
@@ -75,7 +81,7 @@ export const Router = createBrowserRouter(
         <Route path="earnings">
           <Route index element={<EarningListAffiliatePage />} />
         </Route>
-        <Route path="alert">
+        <Route path="alerts">
           <Route index element={<AlertListAffiliatePage />} />
         </Route>
       </Route>
@@ -96,6 +102,9 @@ export const Router = createBrowserRouter(
         <Route path="tokens">
           <Route index element={<UserTokenPage />} />
         </Route>
+        <Route path="bonuses">
+          <Route index element={<BonusListPage />} />
+        </Route>
         <Route path="referrals">
           <Route index element={<ReferralListPage />} />
         </Route>
@@ -105,7 +114,7 @@ export const Router = createBrowserRouter(
         <Route path="earnings">
           <Route index element={<EarningListPage />} />
         </Route>
-        <Route path="alert">
+        <Route path="alerts">
           <Route index element={<AlertListPage />} />
         </Route>
 

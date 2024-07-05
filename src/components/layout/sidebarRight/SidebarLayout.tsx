@@ -14,9 +14,9 @@ function SidebarLayout() {
   };
 
   const currentPath = useLocation();
-
+  // removed classes sidebar
   return (
-    <div className="sidebar">
+    <div className="">
       <h2>Right Sidebar</h2>
     </div>
   );

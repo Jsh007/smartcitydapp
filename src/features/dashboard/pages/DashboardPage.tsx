@@ -1,7 +1,8 @@
 import React from 'react';
+import { Typography } from '@mui/material';
 
 function DashboardPage() {
-  return <div>DashboardPage</div>;
+  return <Typography component={'h2'}>DashboardPage</Typography>;
 }
 
 export default DashboardPage;

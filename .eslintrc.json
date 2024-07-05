@@ -18,7 +18,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react", "prettier"],
+  "plugins": ["react", "prettier", "tss-unused-classes"],
   "rules": {
     // "react/jsx-uses-react": "error",
     "react/jsx-uses-react": "off",
@@ -39,7 +39,8 @@
       }
     ],
     "@typescript-eslint/indent": "off",
-    "@typescript-eslint/ban-types": "warn"
+    "@typescript-eslint/ban-types": "warn",
+    "tss-unused-classes/unused-classes": "warn"
   },
   "settings": {
     "import/resolver": {

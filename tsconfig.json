@@ -35,7 +35,7 @@
       "@features/*": ["./src/features/*"],
       // "@helpers/*": ["./src/hooks/*"],
       "@hooks/*": ["./src/helpers/*"],
-      "@types/*": ["./src/types/*"],
+      "@apptypes/*": ["./src/types/*"],
       "@utils/*": ["./src/utils/*"]
       // "@pages/*": ["./src/features/*/pages"]
       // "@templates/*": ["./src/features/*/templates"]

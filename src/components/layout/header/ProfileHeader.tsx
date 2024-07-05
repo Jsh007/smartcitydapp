@@ -1,5 +1,7 @@
 // import './ProfileHeader.css';
 
+import { Box, Card, Paper } from '@mui/material';
+
 // import Avatar from '../../../../features/auth/admin/template/avatar/Avatar';
 // import {type ProfileHeaderProps} from '@/types/propTypes';
 // import ProfileInfo from '../../../../features/auth/admin/template/widgets/ProfileInfo';
@@ -24,14 +26,14 @@ function ProfileHeader() {
   // 	dashTip: 'Explore your Dashboard',
   // };
   return (
-    <div className="profile-header">
+    <Card component={'div'} elevation={0} className="profile-header">
       <h1>Profile Header</h1>
       {/* <h1>Profile Header</h1> */}
       {/* <Welcome username={profileData.username} dashTip={profileData.dashTip} /> */}
       {/* <ReferralLink username={profileData.username} /> */}
       {/* <UserMenu /> */}
       {/* <ProfileInfo username={profileData.username} /> */}
-    </div>
+    </Card>
   );
 }
 

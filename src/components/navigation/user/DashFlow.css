@@ -1,0 +1,55 @@
+.dash-layout {
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+.page {
+  width: 100vw;
+}
+.content-container {
+  width: 100%;
+  /* margin-top: 6rem; */
+}
+
+@media only screen and (max-width: 550px) {
+  .content-container {
+    width: 100%;
+    margin-top: 6rem;
+  }
+  .dash-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dashboard-page {
+    display: block;
+  }
+  .sidebar {
+    min-height: 100px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+  }
+  .h-screen {
+    height: auto;
+  }
+  .sidebar-userinfo {
+    display: none;
+  }
+  .stat-block {
+    flex-direction: column;
+    align-items: center;
+  }
+  .stat-block .card {
+    width: 90%;
+  }
+  .profile-header {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .ref-link {
+    width: 100%;
+    padding: 35px 10px;
+  }
+}

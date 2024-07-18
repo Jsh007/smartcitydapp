@@ -1,6 +1,7 @@
 import './LayoutContent.css';
 
-import { Box } from '@mui/material';
+import { Box, Grid } from '@mui/material';
+
 import { Outlet } from 'react-router-dom';
 import ProfileHeader from '../header/ProfileHeader';
 import React from 'react';
@@ -8,11 +9,17 @@ import React from 'react';
 function LayoutBody() {
   // Remove class names; content-container
   return (
-    <Box className="content-container">
-      <ProfileHeader />
-      <Box className="outlet-wrapper">
-        <Outlet />
-      </Box>
+    <Box>
+      <Grid container>
+        <Grid item xs={12}>
+          <ProfileHeader />
+        </Grid>
+        <Grid item xs={12}>
+          <Box className="outlet-wrapper">
+            <Outlet />
+          </Box>
+        </Grid>
+      </Grid>
     </Box>
   );
 }

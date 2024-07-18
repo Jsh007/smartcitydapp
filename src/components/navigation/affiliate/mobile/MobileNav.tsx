@@ -3,7 +3,7 @@ import { Close, Home, Lock, VerifiedUser } from '@mui/icons-material';
 import React, { useState } from 'react';
 
 import MenuIcon from '@mui/icons-material/Menu';
-import NavLink from '@components/navigation/user/mobile/NavLink';
+import NavLink from '@components/navigation/affiliate/mobile/NavLink';
 import ThemeSwitcher from '@components/togglers/ThemeSwitcher';
 
 const pages = ['Products', 'Services', 'ABoutUs', 'ContactUs'];
@@ -34,9 +34,9 @@ const MobileNav = () => {
           >
             {/* Ensure to use the color prop rather than the sx prop. The later overrides the theme */}
             <NavLink
+              icon={<Home sx={{ color: '#878787' }} />}
               label="Dashboard"
               link="/affiliatedash"
-              icon={<Home sx={{ color: '#878787' }} />}
               clickHandler={() => setOpenDrawer(false)}
             />
             <NavLink

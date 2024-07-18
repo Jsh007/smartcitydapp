@@ -1,10 +1,11 @@
 import { Box, useTheme } from '@mui/material';
 
 import { Link } from 'react-router-dom';
+import { MobileLinkProps } from '@apptypes/propTypes';
 import React from 'react';
 import { useMobileLinkStyles } from 'src/theme/tssStyles';
 
-function NavLink({ label, link, icon, active, clickHandler }) {
+function NavLink({ label, link, icon, active, clickHandler }: MobileLinkProps) {
   const theme = useTheme();
   const { classes, cx } = useMobileLinkStyles({
     color: active ? theme.custom.navbar.activeTextColor : theme.custom.navbar.textColor,

@@ -6,6 +6,7 @@ import React, { createContext, useState } from 'react';
 import Avatar from '@features/auth/templates/avatars/Avatar';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { ChildrenProps } from '@apptypes/propTypes';
 import { Logout } from '@mui/icons-material';
 import { SidebarContext } from '@app/context/SidebarContext';
 import ThemeSwitcher from '@components/togglers/ThemeSwitcher';
@@ -18,7 +19,7 @@ import { useNavigate } from 'react-router-dom';
 //  SidebarContextType
 
 // SidebarProps
-function Sidebar({ children }) {
+function Sidebar({ children }: ChildrenProps) {
   const [expanded, setExpanded] = useState(true);
   const theme = useTheme();
   // const {username, email} = useAuth();
@@ -54,8 +55,8 @@ function Sidebar({ children }) {
         </div>
         {/* Links For Desktop  View */}
         <SidebarContext.Provider value={{ expanded }}>
+          {/* Sidebar links will be received from props.children */}
           <ul className="flex-1 px-3 max-sm:hidden">{children}</ul>
-
           {/* Theme Switcher */}
           <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end', width: '100%' }}>
             <ThemeSwitcher />

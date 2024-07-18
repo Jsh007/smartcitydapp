@@ -87,6 +87,13 @@ export const AppLightTheme: Theme = responsiveFontSizes(
           },
         },
       },
+      MuiCard: {
+        styleOverrides: {
+          root: {
+            borderRadius: 15,
+          },
+        },
+      },
     },
   }),
 );
@@ -163,6 +170,13 @@ export const AppDarkTheme: Theme = responsiveFontSizes(
         styleOverrides: {
           root: {
             color: '#F5F5F5',
+          },
+        },
+      },
+      MuiCard: {
+        styleOverrides: {
+          root: {
+            borderRadius: 15,
           },
         },
       },

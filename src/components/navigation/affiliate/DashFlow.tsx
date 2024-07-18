@@ -8,8 +8,8 @@ import LayoutFooter from '../../layout/footer/LayoutFooter';
 import LayoutHeader from '../../layout/header/LayoutHeader';
 import { Menu } from '@mui/icons-material';
 import MobileNav from '@components/navigation/affiliate/mobile/MobileNav';
-import SidebarLeftLayout from '../../layout/sidebarLeft/SidebarLayout';
-import SidebarRightLayout from '@components/layout/sidebarRight/SidebarLayout';
+import SidebarLeftLayout from '../../../chest/sidebarLeft/SidebarLayout';
+import SidebarRightLayout from '@components/layout/sidebars/affiliate/sidebarRight/SidebarLayout';
 
 // We'll be needing a 3-column, flex: column layout
 // Which should give us a LeftSidebar(NavSidebar), LayoutContent and RightSideBar

@@ -34,9 +34,14 @@ const MobileNav = () => {
 
   return (
     <>
-      <IconButton sx={{ color: 'white', marginLeft: 'auto' }} onClick={() => setOpenDrawer(!openDrawer)}>
-        <MenuIcon color="secondary" />
-      </IconButton>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+        <img src="/images/gtx-stream-logo1.png" className={`overflow-hidden transition-all w-32}`} alt="" />
+
+        <IconButton sx={{ color: 'white', marginLeft: 'auto' }} onClick={() => setOpenDrawer(!openDrawer)}>
+          <MenuIcon color="secondary" fontSize="large" />
+        </IconButton>
+      </Box>
+
       {/* sx={{ backgroundColor: theme.palette.background.default }} */}
       <Box>
         <Drawer anchor="left" open={openDrawer} onClose={() => setOpenDrawer(false)}>
@@ -50,10 +55,14 @@ const MobileNav = () => {
             }}
           >
             {/* onClick={() => setOpenDrawer(!openDrawer)} */}
-            <IconButton sx={{ color: 'white', marginLeft: 'auto' }} onClick={() => setOpenDrawer(!openDrawer)}>
-              {/* <MenuIcon color="secondary" /> */}
-              <Close color="secondary" fontSize="large" />
-            </IconButton>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+              <img src="/images/gtx-stream-logo1.png" className={`overflow-hidden transition-all w-32}`} alt="" />
+
+              <IconButton sx={{ color: 'white', marginLeft: 'auto' }} onClick={() => setOpenDrawer(!openDrawer)}>
+                {/* <MenuIcon color="secondary" /> */}
+                <Close color="secondary" fontSize="large" />
+              </IconButton>
+            </Box>
           </Box>
           <Box
             width="300px"

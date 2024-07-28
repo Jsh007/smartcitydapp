@@ -1,0 +1,15 @@
+{
+  "name": "SmartCity",
+  "symbol": "SC",
+  "description": "",
+  "image": "",
+  "extensions": {
+    "website": "https://trumpparrot.xyz",
+    "twitter": "https://x.com/TrumpParrotSol",
+    "telegram": "https://t.me/TrumpParrotOnSolana"
+  },
+  "tags": [],
+  "creator": { "name": "", "site": "" },
+  "image": "https://pbs.twimg.com/profile_images/1813290510896742400/VweGXiy8_400x400.jpg",
+  "isMutable": 0
+}

@@ -1,5 +1,7 @@
+import { Buffer } from 'buffer';
 import { defineConfig } from 'vite';
 import { fileURLToPath } from 'node:url';
+import inject from '@rollup/plugin-inject';
 import react from '@vitejs/plugin-react';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
@@ -52,6 +54,7 @@ export default defineConfig({
   plugins: [tsconfigPaths(), react()],
   build: {
     rollupOptions: {
+      plugins: [inject({ Buffer: ['Buffer', 'Buffer'], process: 'process' })],
       output: {
         manualChunks(id) {
           if (id.includes('node_modules')) {

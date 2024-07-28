@@ -10,6 +10,7 @@ import AlertListPage from '@features/alert/pages/AlertListPage';
 // import AffiliatesListPage from '@/features/affiliates/pages/AffiliatesListPage';
 // import AppFlow from './src/components/admin/navigation/AppFlow';
 import AppFlow from '@components/navigation/AppFlow';
+import BonusClaimingPage from '@features/bonus/pages/BonusClaimingPage';
 import BonusListAffiliatePage from '@features/bonus/pages/BonusListAffiliatePage';
 import BonusListPage from '@features/bonus/pages/BonusListPage';
 import ClaimListAffiliatePage from '@features/claim/pages/ClaimListAffiliatePage';
@@ -28,7 +29,9 @@ import ReferralListPage from '@features/referral/pages/ReferralListPage';
 import TaskListAffiliatePage from '@features/task/pages/TaskListAffiliatePage';
 import TaskListPage from '@features/task/pages/TaskListPage';
 import UserProfilePage from '@features/user/pages/UserProfilePage';
+import UserTokenAffiliateClaimingPage from '@features/user/pages/UserTokenAffiliateClaimingPage';
 import UserTokenAffiliatePage from '@features/user/pages/UserTokenAffiliatePage';
+import UserTokenClaimingPage from '@features/user/pages/UserTokenClaimingPage';
 import UserTokenPage from '@features/user/pages/UserTokenPage';
 import { lazy } from 'react';
 import { roles } from '@config/roles';
@@ -68,9 +71,15 @@ export const Router = createBrowserRouter(
 
         <Route path="tokens">
           <Route index element={<UserTokenAffiliatePage />} />
+          {/* This route should render the appropriate token claiming page component
+          which will process the claiming 
+          pass the userId in the route parameter or retrieve it from useAuth inside the page component
+          */}
+          <Route path="claim" element={<UserTokenAffiliateClaimingPage />} />
         </Route>
         <Route path="bonuses">
           <Route index element={<BonusListAffiliatePage />} />
+          <Route path="claim" element={<BonusListAffiliatePage />} />
         </Route>
         <Route path="referrals">
           <Route index element={<ReferralListAffiliatePage />} />
@@ -101,9 +110,11 @@ export const Router = createBrowserRouter(
         </Route>
         <Route path="tokens">
           <Route index element={<UserTokenPage />} />
+          <Route path="claim" element={<UserTokenClaimingPage />} />
         </Route>
         <Route path="bonuses">
           <Route index element={<BonusListPage />} />
+          <Route path="claim" element={<BonusClaimingPage />} />
         </Route>
         <Route path="referrals">
           <Route index element={<ReferralListPage />} />

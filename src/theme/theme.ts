@@ -79,11 +79,23 @@ export const AppLightTheme: Theme = responsiveFontSizes(
         primary: '#2E2C3A',
       },
     },
+    typography: {
+      h1: {
+        fontWeight: 600,
+      },
+      h2: {
+        fontWeight: 600,
+      },
+      body1: {
+        fontSize: '1.2rem',
+      },
+    },
     components: {
       MuiTypography: {
         styleOverrides: {
           root: {
             color: '#2E2C3A',
+            fontFamily: "'DM Sans', 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif",
           },
         },
       },
@@ -91,6 +103,13 @@ export const AppLightTheme: Theme = responsiveFontSizes(
         styleOverrides: {
           root: {
             borderRadius: 15,
+          },
+        },
+      },
+      MuiButton: {
+        styleOverrides: {
+          root: {
+            fontVariant: 'small-caps',
           },
         },
       },
@@ -165,11 +184,23 @@ export const AppDarkTheme: Theme = responsiveFontSizes(
         primary: '#F5F5F5',
       },
     },
+    typography: {
+      h1: {
+        fontWeight: 600,
+      },
+      h2: {
+        fontWeight: 600,
+      },
+      body1: {
+        fontSize: '1.2rem',
+      },
+    },
     components: {
       MuiTypography: {
         styleOverrides: {
           root: {
             color: '#F5F5F5',
+            fontFamily: "'DM Sans', 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif",
           },
         },
       },
@@ -177,6 +208,13 @@ export const AppDarkTheme: Theme = responsiveFontSizes(
         styleOverrides: {
           root: {
             borderRadius: 15,
+          },
+        },
+      },
+      MuiButton: {
+        styleOverrides: {
+          root: {
+            fontVariant: 'small-caps',
           },
         },
       },

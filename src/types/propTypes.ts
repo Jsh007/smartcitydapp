@@ -191,7 +191,7 @@ export type TablePaginationActionsProps = {
   onPageChange: (event: React.MouseEvent<HTMLButtonElement>, newPage: number) => void;
 };
 
-// GENERICS
+// SWEET GENERICS
 
 export type TablePropsType<K, T = void> = {
   // Data: T[];
@@ -221,4 +221,10 @@ export type TableCellPropsType<K, T> = {
 export type SortRowsType<K, T> = {
   fields: K[];
   rows: T[];
+};
+
+// SC PROJECT SPECIFIC TYPES
+export type AmountTextPropType = {
+  amt: string;
+  unit: string;
 };

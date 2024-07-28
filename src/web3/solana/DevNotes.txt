@@ -1,0 +1,39 @@
+/*
+Define your solana functions here and import into the features files where they are needed;
+- sendTransaction(arg)
+
+Optional
+- sendClaimTransaction(ownerFee,devFee,tokenAmt, tokenReceiver): returns success or failure - if success, create a new claims doc 
+with returned signature. To be used in the addClaim controller.
+- sendBonusFeeTransaction(amt): returns success or failure - if success, create a new earnings doc with type: bonus.
+To be used in the addEarning  controller. 
+
+Some transaction instructions:
+- sendSolToOwner
+- sendSolToDev
+- sendTokensToUser
+- sendBonusFee
+
+Places where the above functions may be needed:
+- POST '/claim' - addClaim: A new claim doc shall only be added after a transaction containing the following
+instructions completes successfully; sendSolToOwner, sendSolToDev, sendTokensToUser.
+> It should check if the received walletAddress from req.body matches with that from the user mongodb doc
+> It should fire the user's wallet modal and require user to approve transaction: You may need to use the
+ @solana/wallet-adapter-base library for this.
+> Then it should process the transaction by calling sendClaimTransaction() passing it required arguments
+> if the above returns a valid signature; create a new claim doc with the neccessary data and send success
+ res to frontend.
+ else
+> send failure res to frontend.
+
+- POST '/bonus' - addEarning: A new earnings doc with type:bonus shall be added only after a transaction containing the following
+instructions completes successfully; sendBonusFee.
+
+frontend notes:
+- Claim btn: Connect user to their wallet, compare if detected walletAddress matches authUser.wallet
+if true
+    dispatch rtk addTokenClaim
+    else
+    throw error ('You can only claim tokens with your signup wallet')
+
+*/

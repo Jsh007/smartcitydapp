@@ -18,14 +18,17 @@ import SidebarRightLayout from '@components/layout/sidebars/user/sidebarRight/Si
 function DashFlow() {
   const theme = useTheme();
   return (
+    //height: '100%',
     <Box
-      sx={{ flexGrow: 1, height: '100%', background: theme.palette.background.default }}
+      sx={{ flexGrow: 1, background: theme.palette.background.default }}
       paddingRight={{ xs: '1rem', md: '2rem' }}
       paddingLeft={{ xs: '1rem', md: '0' }}
       // paddingX={{ xs: '1rem', md: '0' }}
     >
-      {/* // Removed spacing={2} height="100%" */}
-      <Grid container alignItems="stretch" justifyContent="center" spacing={2} height="100%" direction="column">
+      {/* // Removed spacing={2} height="100%" 
+       height="100%" 
+      */}
+      <Grid container alignItems="stretch" justifyContent="center" spacing={2} direction="column">
         {/* IMPLEMENT TOP NAVBAR/APPBAR HERE */}
         {/* This grid item should be hidden on large screens of md and above 
 		You don't have to create a grid for it since it'll be absolutely positioned. 
@@ -64,7 +67,7 @@ function DashFlow() {
           {/* Content  Grid 
           xs={12} md={7.5}
           */}
-          <Grid container item md alignItems="stretch">
+          <Grid container item xs={12} md alignItems="stretch">
             <Box
               // bgcolor="secondary"
               width="100%"
@@ -78,7 +81,7 @@ function DashFlow() {
               </Box>
             </Box>
 
-            <Box width="100%" marginX={{ md: '2rem' }} marginTop={{ md: '2rem' }}>
+            <Box width="100%">
               <LayoutContent />
             </Box>
           </Grid>

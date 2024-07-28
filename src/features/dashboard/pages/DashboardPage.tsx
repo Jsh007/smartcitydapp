@@ -1,8 +1,15 @@
+import { Box, Typography } from '@mui/material';
+
 import React from 'react';
-import { Typography } from '@mui/material';
 
 function DashboardPage() {
-  return <Typography component={'h2'}>DashboardPage</Typography>;
+  return (
+    <Box marginTop={'2rem'}>
+      <Typography component={'h3'} variant="h3">
+        DashboardPage
+      </Typography>
+    </Box>
+  );
 }
 
 export default DashboardPage;

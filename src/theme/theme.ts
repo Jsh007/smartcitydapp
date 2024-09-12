@@ -82,6 +82,7 @@ export const AppLightTheme: Theme = responsiveFontSizes(
     typography: {
       h1: {
         fontWeight: 600,
+        fontSize: '5rem',
       },
       h2: {
         fontWeight: 600,
@@ -187,6 +188,7 @@ export const AppDarkTheme: Theme = responsiveFontSizes(
     typography: {
       h1: {
         fontWeight: 600,
+        fontSize: '5rem',
       },
       h2: {
         fontWeight: 600,

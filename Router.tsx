@@ -35,26 +35,31 @@ import UserTokenClaimingPage from '@features/user/pages/UserTokenClaimingPage';
 import UserTokenPage from '@features/user/pages/UserTokenPage';
 import { lazy } from 'react';
 import { roles } from '@config/roles';
+import TwitterLoginPage from '@features/auth/pages/TwitterLoginPage';
+import AffiliateWithdrawalPage from '@features/user/pages/AffiliateWithdrawalPage';
+import BonusClaimingAffiliatePage from '@features/bonus/pages/BonusClaimingAffiliatePage';
 
 const Signup = lazy(async () => import('@features/auth/pages/SignupPage'));
 const SignupSuccess = lazy(async () => import('@features/auth/pages/SignupSuccessPage'));
 const Login = lazy(async () => import('@features/auth/pages/LoginPage'));
 const AdminLogin = lazy(async () => import('@features/auth/pages/AdminLoginPage'));
+
 const ResetPassword = lazy(async () => import('@features/auth/pages/ResetPasswordPage'));
-const UpdatePassword = lazy(async () => import('@features/auth/pages/UpdatePasswordPage'));
+const ForgotPassword = lazy(async () => import('@features/auth/pages/ForgotPasswordPage'));
+const ProfileEditPage = lazy(async () => import('@features/auth/pages/ProfileEditPage'));
 
 export const Router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<AppFlow />} errorElement={<Error404Page />}>
       {/* Public Routes */}
       <Route index element={<Login />} />
+      <Route path="twitter-login" element={<TwitterLoginPage />} />
       <Route path="signup" element={<Signup />} />
       <Route path="admin" element={<AdminLogin />} />
       <Route path="success" element={<SignupSuccess />} />
-      <Route path="reset" element={<ResetPassword />} />
-      {/* You might need to move this into the user/ route. 
-	  since only authenticated/identified users should access this page */}
-      <Route path="update" element={<UpdatePassword />} />
+      {/* forgot password form and reset password form for the public */}
+      <Route path="forgot-password" element={<ForgotPassword />} />
+      <Route path="reset-pasword" element={<ResetPassword />} />
 
       {/* <Route element={<PersistentLogin />}> */}
       {/* <Route element={<RequireAuth permitedRoles={[roles.affiliate]} />}> */}
@@ -79,7 +84,7 @@ export const Router = createBrowserRouter(
         </Route>
         <Route path="bonuses">
           <Route index element={<BonusListAffiliatePage />} />
-          <Route path="claim" element={<BonusListAffiliatePage />} />
+          <Route path="claim" element={<BonusClaimingAffiliatePage />} />
         </Route>
         <Route path="referrals">
           <Route index element={<ReferralListAffiliatePage />} />
@@ -90,8 +95,15 @@ export const Router = createBrowserRouter(
         <Route path="earnings">
           <Route index element={<EarningListAffiliatePage />} />
         </Route>
+        <Route path="withdrawals">
+          <Route index element={<AffiliateWithdrawalPage />} />
+        </Route>
         <Route path="alerts">
           <Route index element={<AlertListAffiliatePage />} />
+        </Route>
+        {/* Profile Edit form for authenticated users */}
+        <Route path="edit-profile">
+          <Route path=":id" element={<ProfileEditPage />} />
         </Route>
       </Route>
       {/* </Route> */}
@@ -127,6 +139,10 @@ export const Router = createBrowserRouter(
         </Route>
         <Route path="alerts">
           <Route index element={<AlertListPage />} />
+        </Route>
+        {/* Profile Edit form for authenticated users */}
+        <Route path="edit-profile">
+          <Route path=":id" element={<ProfileEditPage />} />
         </Route>
 
         {/* <Route path="domains">

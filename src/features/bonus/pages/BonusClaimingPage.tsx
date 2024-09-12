@@ -11,12 +11,23 @@ import { useCallback } from 'react';
 
 function BonusClaimingPage() {
   // This page should get the user's recent Bonus:
-  // const activeBonus = useGetUserBonus - get all the user's single recent doc from the bonusOffers collection (where isClaimed: false)
-  // The above value will be passed to the AmountText component.
-  // The bonus value rendered on the frontend will come from the bonusPoints or points field ( a virtual field) of the Bonus Model.
-  // Actual bonus earned will be; const bonuesEarned = bonusPoints / basepoint (1000) - this value should be passed to the amt argument of the token
-  // transfer instruction and the second AmountText component.
-  const bonuesEarned = 50;
+  // const lastestBonus = useGetUserBonus - get all the user's single recent doc from the bonusOffers (Bonus) collection (where isClaimed: false)
+  // The above doc's value will be passed to the AmountText component.
+  // The bonus value rendered on the frontend will come from the points field ( a virtual field) of the Bonus Model.
+  // Actual bonus earned will be; const bonuesEarned = bonusPoints / basepoint (1000); equivalent to the value field
+  // - this value should be passed to the amt argument of the token transfer instruction and the second AmountText component.
+  const bonuesEarnings = 50; // place holder
+
+  //  Get Real bonusEarnings
+  // For regular users and affiliates; send a GET request to an endpoint "bonuses/:userId" with query {isClaimed: false}
+  // This should all of the user's unclaimed bonuses. However, we expect to receive only the latest doc
+  // pass the doc's value field to const bonuesEarnings
+
+  // Alternatively, include users' earnings sums (bonusEarnings, taskEarnings,  signupEarnings) in the jwt object and access it from there
+  // If you wish to pass the matching Earnings doc to the claims doc's "earnings" field, use the useGetEarnings() hook
+  //  because it returns docs rather than a sum value.
+
+  // const bonuesEarnings = useGetUserEarningsSum() or simply use the useGetEarnings() hook, passing it  query filters where needed
 
   // WEB3 Coding
   const { connection } = useConnection();
@@ -120,12 +131,17 @@ Preflight checks
       console.log(confirmation, signature);
       // This is where you ACT:
       /*
-      - dispatch useUpdateBonusesMutation - to get and update all (we expect 1 doc though) of the user's bonueses' doc(s) isClaimed to true
-      - dispacth useAddEarningMutation - to create a new earining doc/record with {type: bonus} in the Earnings collection
+      - dispatch useUpdateBonusesMutation - to get and update all (we expect 1 doc though) of the user's bonuses' doc(s) isClaimed to be true
+      - dispacth useAddEarningMutation - to create a new earining doc/record with {type: bonus} in the Earnings collection (XX)
+      - Update: 
+      We're now gonna create a claims (of {type:bonus}) doc for every successful bonues claims: This should trigger a cascade of events
+      that'll create a corresponding Earnings doc (of type: bonus) for the just created claims doc. This feature will be implemented in the ClaimModel's
+      post-save hook.
       */
+
       // Do const {value} = confirmation
       // Call the function if (value.err === null)
-      // Required params: userId, walletAddress (publicKey), amt, signature
+      // Required params: userId, walletAddress (publicKey), amt (bonuesEarnings), signature
     } catch (error) {
       console.error(error);
     }
@@ -152,7 +168,7 @@ Preflight checks
       <Box display={'flex'} justifyContent={'center'} alignItems={'center'} columnGap={3}>
         <AmountText amt="50k" unit="pts" />
         <DragHandleIcon fontSize="large" />
-        <AmountText amt={bonuesEarned.toString()} unit="$sc" />
+        <AmountText amt={bonuesEarnings.toString()} unit="$sc" />
       </Box>
       <Button
         variant="contained"

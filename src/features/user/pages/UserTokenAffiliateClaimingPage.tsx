@@ -41,11 +41,21 @@ import { getTokenDecimals } from 'src/web3/helpers';
 
 function UserTokenAffiliateClaimingPage() {
   // This page should get the user's Total Earned points:
-  // const totalPoints = useGetAffiliateUserEarnings - get all of the user's earnings docs (where type: token/task | bonus | referral/signup)
+  // const totalTokens = useGetAffiliateTokenEarnings - get all of the user's earnings docs (where type: token/task | bonus | referral/signup)
   // This value that'll be passed to the AmountText component.
   // Actual token earning would be;  totalPoints / basepoint (1000) - this should be passed to the amt argument of the token
   // transfer instruction and the second AmountText component.
-  const totalScEarnings = 50;
+  const totalScEarnings = 50; // placeholder value
+
+  //  Get Real totalScEarnings
+  // For Affilate users; send a GET request to an endpoint "earnings/sum/:userId" to get the sum of only his earnings docs
+  // with {type: bonus | task}. Those with {type: signup} are reserved for withdrawals.
+  // Calculation: sum of all matching docs' 'value' fields.
+  // Alternatively, include users' earnings sums (bonusEarnings, taskEarnings,  signupEarnings) in the jwt object and access it from there
+  // If you wish to pass the matching Earnings doc to the claims doc's "earnings" field, use the useGetEarnings() hook
+  //  because it returns docs rather than a sum value.
+
+  // const totalScEarnings = useGetUserEarningsSum() or simply use the useGetEarnings() hook, passing it  query filters where needed
 
   // WEB3 Coding
   const { connection } = useConnection();
@@ -255,7 +265,7 @@ PREPARE TRANSACTION
       );
       console.log(confirmation, signature);
       // This is where you ACT:
-      // This is where you dispacth useAddClaimMutation to create a new claim doc/record in the claims collection
+      // This is where you dispatch useAddClaimMutation to create a new claim doc/record in the claims collection
       // Do const {value} = confirmation
       // Call the function if (value.err === null)
       // Required params: userId, walletAddress (publicKey), amt, signature

@@ -39,20 +39,20 @@ import { DragHandle } from '@mui/icons-material';
 import DragHandleIcon from '@mui/icons-material/DragHandle';
 import { getTokenDecimals } from 'src/web3/helpers';
 
-function UserTokenClaimingPage() {
-  // This page should get the user's Total Earned points:
-  // const totalTokens = useGetUserTokenEarnings - get all of the user's earnings docs (where type: token/task | bonus | referral/signup)
+function AffiliateWithdrawalPage() {
+  // This page should get the user's Total Affilate Earnings:
+  // const totalEarnings = useGetAffiliateEarnings - get all of the user's earnings docs (where type: referral/signup)
   // This value that'll be passed to the AmountText component.
-  // Actual token earning would be;  totalPoints / basepoint (1000) - this should be passed to the amt argument of the token
+  // this should be passed to the amt argument of the token
   // transfer instruction and the second AmountText component.
+  const totalAffiliateEarnings = 50; // placeholder value
 
-  const totalScEarnings = 50; // placeholder value
+  //  Get Real totalAffiliateEarnings
+  // For Affilate users only; send a GET request to an endpoint "earnings/sum/:userId" to get the sum of only his earnings docs
+  // with {type: signup}. Docs with {type: signup} are reserved for withdrawals.
+  // Alternatively, include users' earnings sums (bonusEarnings, taskEarnings,  signupEarnings) in the jwt object and access it from there.
 
-  //  Get Real totalScEarnings
-  // For Regular users; send a GET request to an endpoint "earnings/sum/:userId" to get the sum  of all his earnings docs
-  // Alternatively, include users' earnings sums (bonusEarnings, taskEarnings,  signupEarnings) in the jwt object and access it from there
-
-  // const totalScEarnings = useGetUserEarningsSum() or simply use the useGetEarnings() hook, passing it  query filters where needed
+  // const totalAffiliateEarnings = useGetUserEarningsSum() or simply use the useGetEarnings() hook, passing it  query filters where needed
 
   // WEB3 Coding
   const { connection } = useConnection();
@@ -286,7 +286,7 @@ PREPARE TRANSACTION
       }}
     >
       <Typography component={'p'} variant="body1" fontWeight={600}>
-        Claim your earned tokens into your wallet.
+        Withdraw your earnings tokens to your wallet.
       </Typography>
       <Box display={'flex'} justifyContent={'center'} alignItems={'center'} columnGap={3}>
         <AmountText amt="150k" unit="pts" />
@@ -303,10 +303,10 @@ PREPARE TRANSACTION
         onClick={handleClick}
         disabled={!PublicKey}
       >
-        Claim Tokens
+        Withdraw Earnings
       </Button>
     </Card>
   );
 }
 
-export default UserTokenClaimingPage;
+export default AffiliateWithdrawalPage;

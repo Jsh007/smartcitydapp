@@ -12,6 +12,7 @@
     "serve-json": "json-server --watch db.json"
   },
   "dependencies": {
+    "@airgram/web": "^5.0.0",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@fvilers/disable-react-devtools": "^1.3.0",
